@@ -1,0 +1,58 @@
+-- Sesión: Datos de prueba para la base de datos Yuri (MySQL / MariaDB)
+USE yuri;
+
+-- 1. INSERTAR DATOS EN CLIENTES
+INSERT INTO clientes (nombre_usuario, email, telefono, direccion) VALUES
+('AnaGomez',       'ana.gomez@gmail.com',     '987654321', 'Av. Larco 123, Lima'),
+('CarlosRuiz',     'carlos.ruiz@hotmail.com', '912345678', 'Calle Las Flores 456, Arequipa'),
+('MariaLopez',     'm.lopez@yahoo.com',       '955112233', 'Av. El Sol 789, Cusco'),
+('LuciaFernandez', 'lucia.f@gmail.com',        '944556677', 'Calle Real 321, Huancayo'),
+('JuanPerez',      'jperez@outlook.com',      '933445566', 'Av. Primavera 654, Lima');
+
+-- 2. INSERTAR DATOS EN ROPA
+INSERT INTO ropa (nombre, categoria, talla, color, precio, stock) VALUES
+('Camisa de Lino Casual',   'Camisas',  'M',  'Blanco',  89.90, 15),
+('Pantalón Jean Slim Fit',  'Pantalones','32', 'Azul',   120.00, 20),
+('Vestido Elegante Noche',  'Vestidos', 'S',  'Negro',  199.90,  8),
+('Casaca de Cuero Sintético','Casacas',  'L',  'Marrón', 250.00,  5),
+('Polo Básico Algodón',     'Polos',    'M',  'Gris',    45.00, 30);
+
+-- 3. INSERTAR DATOS EN ACCESORIOS
+INSERT INTO accesorios (nombre, genero, tipo, precio, stock) VALUES
+('Lentes de Sol Polarizados', 'Unisex',   'Lentes',   75.00, 12),
+('Corbata de Seda',          'Masculino','Corbata',  40.00, 15),
+('Sombrero de Playa Panameño','Femenino', 'Sombrero', 65.00,  8),
+('Bufanda de Lana Extra Suave','Unisex',  'Bufanda',  35.50, 25),
+('Cinturón de Cuero Formal',  'Masculino','Cinturón', 55.00, 18);
+
+-- 4. INSERTAR DATOS EN CALZADOS
+INSERT INTO calzados (nombre_de_calzado, tipo, talla, color, precio_calzado, stock) VALUES
+('Zapatillas Urbanas Classic', 'Zapatillas', '41', 'Blanco', 189.90, 14),
+('Zapatos de Vestir Oxford',   'Formal',     '42', 'Negro',  240.00,  6),
+('Botines de Cuero Casual',    'Botines',    '38', 'Marrón', 210.00,  9),
+('Sandalias de Verano',        'Sandalias',  '37', 'Beige',   79.90, 15),
+('Mocasines Casuales',         'Mocasines',  '40', 'Azul',   150.00, 10);
+
+-- 5. INSERTAR DATOS EN BOLSOS
+INSERT INTO bolsos (tipo_bolso, nombre, color, precio, stock) VALUES
+('Mochila',     'Mochila Ejecutiva Porta Laptop', 'Negro',  160.00, 10),
+('Cartera',     'Cartera de Hombro Casual',       'Marrón', 135.00,  7),
+('Bolso Mano',  'Bolso Elegante de Mano',         'Rojo',   180.00,  4),
+('Billetera',   'Billetera de Cuero Compacta',    'Negro',   65.00, 20),
+('Banano',      'Banano Deportivo Urbano',        'Gris',    50.00, 12);
+
+-- 6. INSERTAR DATOS EN JOYERÍA
+INSERT INTO joyeria (nombre, tipo, material, precio, stock) VALUES
+('Collar Corazón de Cristal', 'Collar',  'Plata 925',  120.00,  6),
+('Anillo de Compromiso Slim', 'Anillo',  'Oro 18k',    450.00,  3),
+('Pulsera Trenzada Fina',     'Pulsera', 'Plata 925',   85.00, 10),
+('Aretes Perla Cultivada',    'Aretes',  'Oro Rosa',   130.00,  8),
+('Dije Árbol de la Vida',     'Dije',    'Plata 925',   55.00, 15);
+
+-- 7. INSERTAR DATOS EN COSMÉTICOS
+INSERT INTO cosmeticos (nombre, tipo, marca, precio, stock) VALUES
+('Labial Mate Larga Duración',  'Labial',        'Maybelline', 35.00, 25),
+('Base de Maquillaje Fluida',   'Base',          'L\'Oréal',   65.00, 14),
+('Sombra de Ojos 12 Colores',   'Paleta Sombras','MAC',       120.00,  8),
+('Crema Hidratante Facial',     'Cuidado Facial','Nivea',      42.00, 30),
+('Perfume Eau de Parfum 100ml', 'Perfume',       'Channel',   380.00,  5);

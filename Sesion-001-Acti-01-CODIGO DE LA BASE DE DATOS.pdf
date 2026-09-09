@@ -1,0 +1,128 @@
+CREATE DATABASE IF NOT EXISTS yuri
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci;
+
+USE yuri;
+
+SET FOREIGN_KEY_CHECKS = 0;
+
+DROP TABLE IF EXISTS cosmeticos;
+DROP TABLE IF EXISTS joyeria;
+DROP TABLE IF EXISTS bolsos;
+DROP TABLE IF EXISTS calzados;
+DROP TABLE IF EXISTS accesorios;
+DROP TABLE IF EXISTS ropa;
+DROP TABLE IF EXISTS clientes;
+
+SET FOREIGN_KEY_CHECKS = 1;
+
+-- TABLA DE CLIENTES
+
+CREATE TABLE clientes (
+    cliente_id     INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_usuario VARCHAR(50) NOT NULL UNIQUE,
+    email          VARCHAR(100) NOT NULL UNIQUE,
+    telefono       VARCHAR(20),
+    direccion      VARCHAR(150),
+    fecha_registro DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+-- TABLA DE ROPA
+
+CREATE TABLE ropa (
+    ropa_id       INT AUTO_INCREMENT PRIMARY KEY,
+    nombre        VARCHAR(80) NOT NULL,
+    categoria     VARCHAR(50) NOT NULL,
+    talla         VARCHAR(20) NOT NULL,
+    color         VARCHAR(30),
+    precio        DECIMAL(10,2) NOT NULL DEFAULT 0.00,
+    stock         INT NOT NULL DEFAULT 0,
+    fecha_ingreso DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+-- TABLA DE ACCESORIOS
+
+CREATE TABLE accesorios (
+    accesorio_id  INT AUTO_INCREMENT PRIMARY KEY,
+    nombre        VARCHAR(80) NOT NULL,
+    genero        VARCHAR(40),
+    tipo          VARCHAR(50) NOT NULL,
+    precio        DECIMAL(10,2) NOT NULL DEFAULT 0.00,
+    stock         INT NOT NULL DEFAULT 0,
+    fecha_ingreso DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+-- TABLA DE CALZADOS
+
+CREATE TABLE calzados (
+    calzado_id        INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_de_calzado VARCHAR(80) NOT NULL,
+    tipo              VARCHAR(30) NOT NULL,
+    talla             VARCHAR(20) NOT NULL,
+    color             VARCHAR(30),
+    precio_calzado    DECIMAL(10,2) NOT NULL DEFAULT 0.00,
+    stock             INT NOT NULL DEFAULT 0,
+    fecha_ingreso     DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+-- TABLA DE BOLSOS
+
+CREATE TABLE bolsos (
+    bolso_id      INT AUTO_INCREMENT PRIMARY KEY,
+    tipo_bolso    VARCHAR(50) NOT NULL,
+    nombre        VARCHAR(80) NOT NULL,
+    color         VARCHAR(30),
+    precio        DECIMAL(10,2) NOT NULL DEFAULT 0.00,
+    stock         INT NOT NULL DEFAULT 0,
+    fecha_ingreso DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+-- TABLA DE JOYERÍA
+
+CREATE TABLE joyeria (
+    joyeria_id    INT AUTO_INCREMENT PRIMARY KEY,
+    nombre        VARCHAR(80) NOT NULL,
+    tipo          VARCHAR(50) NOT NULL,
+    material      VARCHAR(50),
+    precio        DECIMAL(10,2) NOT NULL DEFAULT 0.00,
+    stock         INT NOT NULL DEFAULT 0,
+    fecha_ingreso DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+-- TABLA DE COSMÉTICOS
+
+CREATE TABLE cosmeticos (
+    cosmetico_id  INT AUTO_INCREMENT PRIMARY KEY,
+    nombre        VARCHAR(80) NOT NULL,
+    tipo          VARCHAR(50) NOT NULL,
+    marca         VARCHAR(50),
+    precio        DECIMAL(10,2) NOT NULL DEFAULT 0.00,
+    stock         INT NOT NULL DEFAULT 0,
+    fecha_ingreso DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+-- ÍNDICES
+
+CREATE INDEX idx_ropa_categoria
+ON ropa(categoria);
+
+CREATE INDEX idx_ropa_stock
+ON ropa(stock);
+
+CREATE INDEX idx_accesorios_tipo
+ON accesorios(tipo);
+
+CREATE INDEX idx_calzados_tipo
+ON calzados(tipo);
+
+CREATE INDEX idx_bolsos_tipo
+ON bolsos(tipo_bolso);
+
+CREATE INDEX idx_joyeria_tipo
+ON joyeria(tipo);
+
+CREATE INDEX idx_cosmeticos_tipo
+ON cosmeticos(tipo);
+
+CREATE INDEX idx_clientes_email
+ON clientes(email);
